@@ -1,7 +1,7 @@
 <?php
 
 /* Configuração do site */
-require_once ('_config.php');
+require_once ('_confg.php');
 
 /* Configurações desta página */
 
