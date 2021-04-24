@@ -1,1 +1,1 @@
-//Javascript do aplicativo
+// JavaScript do Aplicativo

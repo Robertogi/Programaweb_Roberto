@@ -125,3 +125,33 @@ CREATE TABLE contacts (
     message LONGTEXT NOT NULL,
     status ENUM('recebida', 'lida', 'respondida', 'apagada') DEFAULT 'recebida'
 );
+
+-- Cria tabela para configurações do site
+CREATE TABLE config (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    var VARCHAR(63) NOT NULL,
+    val LONGTEXT NOT NULL
+);
+
+-- Insere configurações
+INSERT INTO config (var, val) VALUES
+('pageTitle', ''),
+('pageCSS', ''),
+('pageJS', ''),
+('siteName', 'Fuinhas'),
+('siteFullName', 'Fuinhas'),
+('siteSlogan', 'Futuca onde não deve.'),
+('siteLogo', '/img/logo_02.png'),
+('favicon', '/favicon.png'),
+('templateCSS', '/css/global.css'),
+('social_github', 'http://github.com/fuinhas'),
+('social_youtube', 'http://youtube.com/fuinhas'),
+('social_linkedin', 'http://linkedin.com/fuinhas'),
+('social_facebook', 'http://facebook.com/fuinhas'),
+('siteOwner', 'André Luferat'),
+('siteYear', '2021'),
+('meta_author', 'André Luferat'),
+('meta_description', 'Site sobre fuinhas, furões e afins.'),
+('meta_keywords', 'fuinha, furão, pet, exótico, mamífero'),
+('meta_copyright', '© 2021 André Luferat')
+;
