@@ -2,13 +2,13 @@
 -- NÃO EXECUTAR APÓS DEPLOY DO SITE (PRODUÇÃO)
 
 -- Apaga o banco de dados caso exista
-DROP DATABASE IF EXISTS fuinhas;
+-- DROP DATABASE IF EXISTS fuinhas;
 
 -- Cria database novamente com buscas 'case insensitive'
-CREATE DATABASE fuinhas CHARACTER SET utf8 COLLATE utf8_general_ci;
+-- CREATE DATABASE fuinhas CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 -- Selecionar o database
-USE fuinhas;
+-- USE fuinhas;
 
 -- Cria tabela com autores dos artigos
 CREATE TABLE authors (

@@ -16,10 +16,10 @@ if ($_SERVER['SERVER_NAME'] == 'fuinhas.localhost') {
 } else {
     
     // Não estou no XAMPP, provavelmente no provedor
-    $myServer = '';
-    $myUser = '';
-    $myPass = '';
-    $myDatabase = '';
+    $myServer = 'sql208.epizy.com';
+    $myUser = 'epiz_28863125';
+    $myPass = 'E933ynmKu3eErs0';
+    $myDatabase = 'epiz_28863125_fuinhas';
 }
 
 // Conexão ($conn contém a conexão)

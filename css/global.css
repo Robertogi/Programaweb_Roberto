@@ -35,6 +35,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-color: darkgray;
+  background-attachment: fixed;
 }
 
 /* Quadro principal */
@@ -96,6 +97,10 @@ header > div img {
 
 header #userLogged {
   cursor: pointer;
+}
+
+header #userLogged div {
+  display: none;
 }
 
 /* Menu principal */

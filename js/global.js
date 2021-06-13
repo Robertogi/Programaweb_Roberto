@@ -19,14 +19,19 @@ firebase.auth().onAuthStateChanged((user) => {
 
         // Monitora click no usuário logado
         $(document).on('click', '#userLogged', logout);
-    } else {
-        // User is signed out
+
+        // Preenche campos do formulário de contatos
+        $('#contact #name').val(user.displayName);
+        $('#contact #email').val(user.email);
+    }
+    // Não tem ninguém logado
+    else {
 
         var html = `
-        
 <img src="/img/user.png" alt="Logue-se">
-<button id="btnLogin"><i class="fab fa-fw fa-google"></i> Entrar / Login</button>        
-        
+<div>
+    <button id="btnLogin"><i class="fab fa-fw fa-google"></i> Entrar / Login</button>        
+</div>
         `;
 
         // Mostra botão de login
@@ -34,48 +39,47 @@ firebase.auth().onAuthStateChanged((user) => {
 
         // Monitora botão "login"
         $(document).on('click', '#btnLogin', login);
-
-        console.log('Ninguém logou ainda!');
     }
 });
 
+// Define o provedor de login social
 var provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({prompt: 'select_account'});
+
+// Força seleção da conta no login
+provider.setCustomParameters({ prompt: 'select_account' });
 
 // Login de usuário
 function login() {
 
+    // Define a persistência ao logar
+    // LOCAL, SESSION e NONE
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
         .then(
+
+            // Faz login usando janela pop-up
             firebase.auth().signInWithPopup(provider)
-                .then(
+                .then()
+                .catch((error) => { console.error('Erro: ', error); })
+        )
+        .catch((error) => { console.error('Erro: ', error); });
 
-                    (result) => {
-                        /** @type {firebase.auth.OAuthCredential} */
-                        var credential = result.credential;
-
-                        // This gives you a Google Access Token. You can use it to access the Google API.
-                        var token = credential.accessToken;
-                        // The signed-in user info.
-                        var user = result.user;
-                        // ...
-                    }
-
-                ).catch((error) => { console.error('Erro: ', error); })
-    )
-    .catch ((error) => { console.error('Erro: ', error); });
+    return false;
 }
 
+// Logout de ususário
 function logout() {
 
+    // Confirmação
     var msg = `Tem certeza que deseja sair do aplicativo?`;
 
     if (confirm(msg)) {
 
+        // Faz logout do usuário, mantendo-o cadastrado 
         firebase.auth().signOut();
 
+        // Remove o usuário do aplicativo e perde o Id
+        // firebase.auth().currentUser.delete();
+
     }
-
     return false;
-
 }

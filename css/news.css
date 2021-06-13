@@ -5,6 +5,10 @@
 
 .list-news li {
     margin: .5rem;
-    border: 1px dotted grey;
     padding: .5rem;
+}
+
+.list-news li::before {
+    content: "»";
+    padding-right: .5rem;
 }

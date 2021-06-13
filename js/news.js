@@ -54,7 +54,7 @@ function showNews(htmlElement, totalItems, keyWord) {
     $(htmlElement).rss('https://news.google.com/rss/search?q=' + keyWord + '&hl=pt-BR', {
         limit: totalItems,
         layoutTemplate: '<ul class="list-news">{entries}</ul>',
-        entryTemplate: '<li><a href="{url}" target="_blank">{title}</li>'
+        entryTemplate: `<li><a href="{url}" target="_blank">{title}</a></li>`
     });
     $('#keyword').html(keyWord);
 }
