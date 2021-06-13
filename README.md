@@ -1,2 +1,2 @@
-# ProgWeb_CG_2019_1
- Projeto de site em PHPH e MySQL do Programador Web de Campo Grande.
+# Fuinhas
+ Projeto do site Fuinhas, desenvolvido no curso de programção web
